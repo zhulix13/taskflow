@@ -8,7 +8,8 @@ class TaskBase(BaseModel):
 
 
 class TaskCreate(TaskBase):
-    pass
+   owner_id: int 
+   
 
 
 class Task(TaskBase):
