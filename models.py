@@ -10,6 +10,7 @@ class User(Base):
     name = Column(String, unique=True, index=True)
     email = Column(String, unique=True, index=True)
     is_active = Column(Boolean, default=True)
+    hashed_password = Column(String)
 
     # Relationship to tasks
     tasks = relationship("Task", back_populates="owner")
@@ -24,3 +25,5 @@ class Task(Base):
     owner_id = Column(Integer, ForeignKey("users.id"))
 
     owner = relationship("User", back_populates="tasks")
+
+
